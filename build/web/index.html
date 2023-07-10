@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Conversiones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="conversor">
+        <meta name="keywords" content="bootstrap,dolares,pesos,euros,conversion,calculadora">
+        <meta name="author" content="Fernando Torres">
+        <link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css" >
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h1 class="display-4">Conversiones</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-header text-center">
+                            <h5 class="card-title">Temperatura</h5>
+                        </div>
+                        <div class="card-body">
+                            <label for="temp-value">Valor:</label>
+                            <input type="number" id="temp-value" class="form-control" placeholder="Ingrese el valor">
+                            <label for="temp-from">De:</label>
+                            <select id="temp-from" class="form-control">
+                                <option value="centigrados" selected>Centigrados</option>
+                                <option value="fahrenheit">Fahrenheit</option>
+                                <option value="kelvin">Kelvin</option>
+                            </select>
+                            <label for="temp-to">A:</label>
+                            <select id="temp-to" class="form-control">
+                                <option value="centigrados">Centigrados</option>
+                                <option value="fahrenheit">Fahrenheit</option>
+                                <option value="kelvin">Kelvin</option>
+                            </select>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn btn-primary" onclick="convertTemperature()">Convertir</button>
+                        </div>
+                        <div class="card-footer">
+                            <label for="temp-total">Total:</label>
+                            <span id="temp-total"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-header text-center">
+                            <h5 class="card-title">Longitud</h5>
+                        </div>
+                        <div class="card-body">
+                            <label for="length-value">Valor:</label>
+                            <input type="number" id="length-value" class="form-control" placeholder="Ingrese el valor">
+                            <label for="length-from">De:</label>
+                            <select id="length-from" class="form-control">
+                                <option value="centimetros" selected>Centímetros</option>
+                                <option value="pulgadas">Pulgadas</option>
+                                <option value="pies">Pies</option>
+                                <option value="yardas">Yardas</option>
+                                <option value="millas">Millas</option>
+                            </select>
+                            <label for="length-to">A:</label>
+                            <select id="length-to" class="form-control">
+                                <option value="centimetros">Centímetros</option>
+                                <option value="pulgadas">Pulgadas</option>
+                                <option value="pies">Pies</option>
+                                <option value="yardas">Yardas</option>
+                                <option value="millas">Millas</option>
+                            </select>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn btn-primary" onclick="convertLength()">Convertir</button>
+                        </div>
+                        <div class="card-footer">
+                            <label for="length-total">Total:</label>
+                            <span id="length-total"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-header text-center">
+                            <h5 class="card-title">Divisas</h5>
+                        </div>
+                        <div class="card-body">
+                            <label for="currency-value">Valor:</label>
+                            <input type="number" id="currency-value" class="form-control" placeholder="Ingrese el valor">
+                            <label for="currency-from">De:</label>
+                            <select id="currency-from" class="form-control">
+                                <option value="mxn" selected>Peso Mexicano</option>
+                                <option value="usd">Dólar Estadounidense</option>
+                                <option value="cad">Dólar Canadiense</option>
+                                <option value="eur">Euro</option>
+                                <option value="gbp">Libra Esterlina</option>
+                                <option value="clp">Peso Chileno</option>
+                                <option value="uyu">Peso Uruguayo</option>
+                                <option value="inr">Rupia</option>
+                                <option value="jpy">Yen</option>
+                                <option value="pln">Zloty</option>
+                            </select>
+                            <label for="currency-to">A:</label>
+                            <select id="currency-to" class="form-control">
+                                <option value="mxn">Peso Mexicano</option>
+                                <option value="usd" selected>Dólar Estadounidense</option>
+                                <option value="cad">Dólar Canadiense</option>
+                                <option value="eur">Euro</option>
+                                <option value="gbp">Libra Esterlina</option>
+                                <option value="clp">Peso Chileno</option>
+                                <option value="uyu">Peso Uruguayo</option>
+                                <option value="inr">Rupia</option>
+                                <option value="jpy">Yen</option>
+                                <option value="pln">Zloty</option>
+                            </select>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn btn-primary" onclick="convertCurrency()">Convertir</button>
+                        </div>
+                        <div class="card-footer">
+                            <label for="currency-total">Total:</label>
+                            <span id="currency-total"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Temperatura</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Centígrados (°C)</td>
+                                    <td>Unidad de temperatura utilizada en el sistema métrico y científico.</td>
+                                </tr>
+                                <tr>
+                                    <td>Fahrenheit (°F)</td>
+                                    <td>Unidad de temperatura utilizada en el sistema imperial y en algunos países.</td>
+                                </tr>
+                                <tr>
+                                    <td>Kelvin (K)</td>
+                                    <td>Unidad de temperatura utilizada en el sistema internacional. Es la escala absoluta de temperatura.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Escala</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Centímetro (cm)</td>
+                                    <td>Equivale a 0.01 metros.</td>
+                                </tr>
+                                <tr>
+                                    <td>Pulgada (in)</td>
+                                    <td>Equivale a 2.54 centímetros.</td>
+                                </tr>
+                                <tr>
+                                    <td>Pie (ft)</td>
+                                    <td>Equivale a 30.48 centímetros o 12 pulgadas.</td>
+                                </tr>
+                                <tr>
+                                    <td>Yarda (yd)</td>
+                                    <td>Equivale a 91.44 centímetros o 3 pies.</td>
+                                </tr>
+                                <tr>
+                                    <td>Milla (mi)</td>
+                                    <td>Equivale a 1,609.34 metros o 5,280 pies.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <table class="table table-bordered">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Moneda</th>
+                                    <th>Valor en relación al Peso mexicano</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Peso mexicano</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td>Dólar estadounidense</td>
+                                    <td>24.04</td>
+                                </tr>
+                                <tr>
+                                    <td>Dólar canadiense</td>
+                                    <td>17.24</td>
+                                </tr>
+                                <tr>
+                                    <td>Euro</td>
+                                    <td>26.2</td>
+                                </tr>
+                                <tr>
+                                    <td>Libra esterlina</td>
+                                    <td>30.05</td>
+                                </tr>
+                                <tr>
+                                    <td>Peso chileno</td>
+                                    <td>0.028</td>
+                                </tr>
+                                <tr>
+                                    <td>Peso uruguayo</td>
+                                    <td>0.56</td>
+                                </tr>
+                                <tr>
+                                    <td>Rupia</td>
+                                    <td>0.32</td>
+                                </tr>
+                                <tr>
+                                    <td>Yen</td>
+                                    <td>0.22</td>
+                                </tr>
+                                <tr>
+                                    <td>Zloty</td>
+                                    <td>5.78</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <script src="style/sweetalert2/sweetalert2.all.min.js"></script>
+        <script src="js/conversor.js"></script>
+    </body>
+</html>
